@@ -33,10 +33,15 @@ namespace Model
         [Required]
         [StringLength(50)]
         public string Pais { get; set; }
+        [StringLength(50)]
         public string Telefono { get; set; }
+        [StringLength(100)]
         public string Linkedin { get; set; }
+        [StringLength(100)]
         public string Github { get; set; }
+        [StringLength(100)]
         public string Youtube { get; set; }
+        [StringLength(100)]
         public string Twitter { get; set; }
 
         //propiedades de navegación
