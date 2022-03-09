@@ -165,6 +165,10 @@
       <Project>{c88d2258-b89f-4551-b86e-fc07e87015fd}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{8266ce7e-5d3a-4d2f-9697-19842c2e4cad}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
