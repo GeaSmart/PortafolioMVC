@@ -118,6 +118,9 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ExperienciasController.cs" />
     <Compile Include="Areas\Admin\Controllers\HabilidadesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TestimoniosController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -140,6 +143,9 @@
     <Content Include="Areas\Admin\Assets\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Areas\Admin\Assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\Admin\Assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Testimonios\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Usuario\Index.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
