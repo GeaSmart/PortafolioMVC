@@ -18,33 +18,6 @@ namespace Portafolio.Areas.Admin.Controllers
             return View();
         }
 
-        public async Task<ResponseModel> Acceder(string email, string password)
-        {
-            var response = new ResponseModel();
-            var hashedPassword = HashHelper.MD5(password);
-            try
-            {
-                using (var context = new ApplicationDbContext())
-                {
-                    var usuario = await context.Usuarios.Where(x => x.Email == email && x.Password == hashedPassword).FirstOrDefaultAsync();
-
-                    if (usuario != null)
-                    {
-                        SessionHelper.AddUserToSession(usuario.Id.ToString());
-                        response.SetResponse(true);
-                    }
-                    else
-                    {
-                        response.SetResponse(false, "Credenciales incorrectas");
-                    }
-
-                }
-            }
-            catch(Exception ex)
-            {
-                throw;
-            }
-            return response;
-        }
+ 
     }
 }
