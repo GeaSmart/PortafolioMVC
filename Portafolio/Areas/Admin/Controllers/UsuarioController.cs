@@ -23,9 +23,16 @@ namespace Portafolio.Areas.Admin.Controllers
             return View(usuario.Obtener(SessionHelper.GetUser()));
         }
 
-        public JsonResult Guardar()
+        public JsonResult Guardar(Usuario usuario)
         {
-            return null;
+            var rm = new ResponseModel();
+
+            ModelState.Remove("Password");//ignoro campo password en la validacion del modelo
+            if (ModelState.IsValid)
+            {
+                rm = usuario.Guardar();
+            }
+            return Json(rm);
         }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -95,6 +96,34 @@ namespace Model
                 throw ex;
             }
             return usuario;            
+        }
+
+        public ResponseModel Guardar( )
+        {
+            var rm = new ResponseModel();
+                        
+            try
+            {
+                using (var context = new ApplicationDbContext())
+                {
+                    context.Configuration.ValidateOnSaveEnabled = false;
+
+                    var usuario = context.Entry(this);
+                    usuario.State = EntityState.Modified;
+                    //context.Usuarios.Add(this);
+
+                    //ignoro campo password
+                    if (this.Password == null) usuario.Property(x => x.Password).IsModified = false;
+
+                    context.SaveChanges();
+                    rm.SetResponse(true);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return rm;
         }
     }
 }

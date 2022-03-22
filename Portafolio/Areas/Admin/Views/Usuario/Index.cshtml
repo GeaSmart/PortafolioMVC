@@ -23,20 +23,25 @@
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="info">
                     <div class="form-group">
+                        @Html.HiddenFor(x=>x.Id)
                         @Html.LabelFor(x => x.Nombres)
                         @Html.TextBoxFor(x => x.Nombres, new { @class = "form-control", placeholder = "Ingrese sus nombres" })
+                        @Html.ValidationMessageFor(x=>x.Nombres)
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(x => x.Apellidos)
                         @Html.TextBoxFor(x => x.Apellidos, new { @class = "form-control", placeholder = "Ingrese sus apellidos" })
+                        @Html.ValidationMessageFor(x => x.Apellidos)
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(x => x.Email)
                         @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Ingrese su correo" })
+                        @Html.ValidationMessageFor(x => x.Email)
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(x => x.Telefono)
                         @Html.TextBoxFor(x => x.Telefono, new { @class = "form-control", placeholder = "Ingrese su telefono" })
+                        @Html.ValidationMessageFor(x => x.Telefono)
                     </div>
                     <div class="form-group">
                         <label>Foto de perfil</label>
@@ -46,7 +51,7 @@
                 <div role="tabpanel" class="tab-pane" id="ubicacion">
                     <div class="form-group">
                         <label>País</label>
-                        <select class="form-control">
+                        <select name="PaisId" class="form-control">
                             @foreach (var pais in paises)
                             {
                                 <option @(Model.PaisId == Convert.ToInt32(pais.Valor) ? "selected" : "" ) value="@pais.Valor">@pais.Descripcion</option>
@@ -54,12 +59,14 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Ciudad</label>
-                        <input type="text" name="Ciudad" class="form-control" placeholder="Ingrese su ciudad" />
+                        @Html.LabelFor(x=>x.Ciudad)
+                        @Html.TextBoxFor(x=>x.Ciudad,new { @class = "form-control", placeholder = "Ingrese su ciudad" })
+                        @Html.ValidationMessageFor(x=>x.Ciudad)
                     </div>
                     <div class="form-group">
-                        <label>Dirección</label>
-                        <textarea name="Direccion" class="form-control" placeholder="Ingrese su dirección"></textarea>
+                        @Html.LabelFor(x=>x.Direccion)
+                        @Html.TextBoxFor(x=>x.Direccion, new { @class = "form-control", placeholder = "Ingrese su dirección" })
+                        @Html.ValidationMessageFor(x=>x.Direccion)
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="social">
