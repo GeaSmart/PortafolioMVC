@@ -2,7 +2,7 @@
     Layout = null;
     string controlador = ViewContext.RouteData.Values["Controller"].ToString().ToLower();
 
-    //Model.Usuario usuario = new Model.Usuario().Obtener(Helper.SessionHelper.GetUser());
+    Model.Usuario usuario = new Model.Usuario().Obtener(Common.SessionHelper.GetUser());
 }
 <!DOCTYPE html>
 <html lang="es">
@@ -57,8 +57,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                @*<img id="user-pic" src="~/Uploads/@usuario.Foto" />*@
-                                @*<b>Hola</b>, @usuario.Nombre <span class="caret"></span>*@
+                                <img id="user-pic" src="~/Uploads/@usuario.Foto" />
+                                <b>Hola</b>, @usuario.Nombres <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>

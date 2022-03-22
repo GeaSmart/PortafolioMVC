@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -43,11 +44,58 @@ namespace Model
         public string Youtube { get; set; }
         [StringLength(100)]
         public string Twitter { get; set; }
+        public string Foto { get; set; }
 
         //propiedades de navegación
         public List<Experiencia> Experiencias{ get; set; }
         public List<Testimonio> Testimonios { get; set; }
         public List<Habilidad> Habilidades { get; set; }
 
+
+        public ResponseModel AccederUsuario(string email, string password)
+        {
+            var response = new ResponseModel();
+            var hashedPassword = HashHelper.MD5(password);
+            try
+            {
+                using (var context = new ApplicationDbContext())
+                {
+                    var usuario = context.Usuarios.Where(x => x.Email == email && x.Password == hashedPassword).FirstOrDefault();
+
+                    if (usuario != null)
+                    {
+                        SessionHelper.AddUserToSession(usuario.Id.ToString());
+                        response.SetResponse(true);
+                    }
+                    else
+                    {
+                        response.SetResponse(false, "Credenciales incorrectas");
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return response;
+        }
+
+        public Usuario Obtener(int id)
+        {
+            var usuario = new Usuario();
+            try
+            {
+                using(var context =new ApplicationDbContext())
+                {
+                    usuario = context.Usuarios.Where(x => x.Id == id).FirstOrDefault();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return usuario;            
+        }
     }
 }

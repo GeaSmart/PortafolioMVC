@@ -59,6 +59,10 @@
     <Compile Include="Migrations\202203090507446_initial.designer.cs">
       <DependentUpon>202203090507446_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203222045092_user-foto.cs" />
+    <Compile Include="Migrations\202203222045092_user-foto.designer.cs">
+      <DependentUpon>202203222045092_user-foto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResponseModel.cs" />
@@ -72,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202203090507446_initial.resx">
       <DependentUpon>202203090507446_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203222045092_user-foto.resx">
+      <DependentUpon>202203222045092_user-foto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -111,6 +111,7 @@
     <Content Include="Areas\Admin\Assets\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Uploads\foto.jpg.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
