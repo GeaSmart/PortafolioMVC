@@ -31,9 +31,8 @@ namespace Model
         [Required]
         [StringLength(50)]
         public string Ciudad { get; set; }
-        [Required]
-        [StringLength(50)]
-        public string Pais { get; set; }
+        [Required]        
+        public int PaisId { get; set; }
         [StringLength(50)]
         public string Telefono { get; set; }
         [StringLength(100)]

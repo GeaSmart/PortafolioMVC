@@ -14,12 +14,18 @@ namespace Portafolio.Areas.Admin.Controllers
     [Autenticado]
     public class UsuarioController : Controller
     {
-        // GET: Admin/Usuario
+        private Usuario usuario = new Usuario();
+        private Configuracion configuracion = new Configuracion();
+
         public ActionResult Index()
         {
-            return View();
+            ViewBag.Paises = configuracion.Listar("pais");
+            return View(usuario.Obtener(SessionHelper.GetUser()));
         }
 
- 
+        public JsonResult Guardar()
+        {
+            return null;
+        }
     }
 }

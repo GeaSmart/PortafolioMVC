@@ -24,5 +24,18 @@ namespace Model
         [StringLength(50)]
         public string Descripcion { get; set; }
         public int Orden { get; set; }
+
+
+        public List<Configuracion> Listar(string relacion)
+        {
+            var datos = new List<Configuracion>();
+
+            using (var contexto = new ApplicationDbContext())
+            {
+                datos = contexto.Configuraciones.Where(x => x.Relacion == relacion).OrderBy(x => x.Orden).ToList();
+            }
+
+            return datos;
+        }
     }
 }

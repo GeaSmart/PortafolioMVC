@@ -1,103 +1,113 @@
-﻿@{
+﻿@model Usuario
+@{
     ViewBag.Title = "Acerca de mí";
+    List<Configuracion> paises = ViewBag.Paises;
 }
 
 <div id="yo" class="page">
 
     <h1 class="page-header">Acerca de mí</h1>
 
-    <div>
+    @using (Html.BeginForm("guardar", "usuario", FormMethod.Post))
+    {
+        <div>
 
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Información</a></li>
-            <li role="presentation"><a href="#ubicacion" aria-controls="ubicacion" role="tab" data-toggle="tab">Ubicación</a></li>
-            <li role="presentation"><a href="#social" aria-controls="social" role="tab" data-toggle="tab">Social</a></li>
-        </ul>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Información</a></li>
+                <li role="presentation"><a href="#ubicacion" aria-controls="ubicacion" role="tab" data-toggle="tab">Ubicación</a></li>
+                <li role="presentation"><a href="#social" aria-controls="social" role="tab" data-toggle="tab">Social</a></li>
+            </ul>
 
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="info">
-                <div class="form-group">
-                    <label>Nombre</label>
-                    <input type="text" name="Nombre" class="form-control" placeholder="Ingrese sus nombres" />
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="info">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Nombres)
+                        @Html.TextBoxFor(x => x.Nombres, new { @class = "form-control", placeholder = "Ingrese sus nombres" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Apellidos)
+                        @Html.TextBoxFor(x => x.Apellidos, new { @class = "form-control", placeholder = "Ingrese sus apellidos" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Email)
+                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Ingrese su correo" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Telefono)
+                        @Html.TextBoxFor(x => x.Telefono, new { @class = "form-control", placeholder = "Ingrese su telefono" })
+                    </div>
+                    <div class="form-group">
+                        <label>Foto de perfil</label>
+                        <input type="file" name="Imagen" />
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Apellido</label>
-                    <input type="text" name="Apellido" class="form-control" placeholder="Ingrese sus apellidos" />
+                <div role="tabpanel" class="tab-pane" id="ubicacion">
+                    <div class="form-group">
+                        <label>País</label>
+                        <select class="form-control">
+                            @foreach (var pais in paises)
+                            {
+                                <option @(Model.PaisId == Convert.ToInt32(pais.Valor) ? "selected" : "" ) value="@pais.Valor">@pais.Descripcion</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Ciudad</label>
+                        <input type="text" name="Ciudad" class="form-control" placeholder="Ingrese su ciudad" />
+                    </div>
+                    <div class="form-group">
+                        <label>Dirección</label>
+                        <textarea name="Direccion" class="form-control" placeholder="Ingrese su dirección"></textarea>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>E-mail</label>
-                    <input type="text" name="Email" class="form-control" placeholder="Ingrese su correo" />
-                </div>
-                <div class="form-group">
-                    <label>Teléfono</label>
-                    <input type="text" name="Ciudad" class="form-control" placeholder="Ingrese su teléfono" />
-                </div>
-                <div class="form-group">
-                    <label>Foto de perfil</label>
-                    <input type="file" name="Imagen" />
+                <div role="tabpanel" class="tab-pane" id="social">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Linkedin)
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-linkedin"></i>
+                            </span>
+                            @Html.TextBoxFor(x => x.Linkedin, new { @class = "form-control", placeholder = "Ingrese su dirección de linkedin" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Github)
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-github"></i>
+                            </span>
+                            @Html.TextBoxFor(x => x.Github, new { @class = "form-control", placeholder = "Ingrese su dirección de Github" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Youtube)
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-youtube"></i>
+                            </span>
+                            @Html.TextBoxFor(x => x.Youtube, new { @class = "form-control", placeholder = "Ingrese su dirección de YouTube" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Twitter)
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                            @Html.TextBoxFor(x => x.Twitter, new { @class = "form-control", placeholder = "Ingrese su dirección de Twitter" })
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div role="tabpanel" class="tab-pane" id="ubicacion">
-                <div class="form-group">
-                    <label>País</label>
-                    <select class="form-control">
-                        <option value="">Seleccione un país</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Ciudad</label>
-                    <input type="text" name="Ciudad" class="form-control" placeholder="Ingrese su ciudad" />
-                </div>
-                <div class="form-group">
-                    <label>Dirección</label>
-                    <textarea name="Direccion" class="form-control" placeholder="Ingrese su dirección"></textarea>
-                </div>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="social">
-                <div class="form-group">
-                    <label>LinkedIn</label>
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="fa fa-linkedin"></i>
-                        </span>
-                        <input type="text" name="Ciudad" class="form-control" placeholder="Ingrese su Linkedin" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Github</label>
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="fa fa-github"></i>
-                        </span>
-                        <input type="text" name="Ciudad" class="form-control" placeholder="Ingrese su Github" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>YouTube</label>
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="fa fa-youtube"></i>
-                        </span>
-                        <input type="text" name="Ciudad" class="form-control" placeholder="Ingrese su YouTube" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Twitter</label>
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="fa fa-twitter"></i>
-                        </span>
-                        <input type="text" name="Ciudad" class="form-control" placeholder="Ingrese su Twitter" />
-                    </div>
-                </div>
-            </div>
+
         </div>
 
-    </div>
+        <div class="text-right well well-sm">
+            <button type="submit" data-ajax="true" class="btn btn-primary">Guardar</button>
+        </div>
+    }
 
-    <div class="text-right well well-sm">
-        <button class="btn btn-primary">Guardar</button>
-    </div>
+
 </div>
