@@ -26,26 +26,26 @@
                         @Html.HiddenFor(x=>x.Id)
                         @Html.LabelFor(x => x.Nombres)
                         @Html.TextBoxFor(x => x.Nombres, new { @class = "form-control", placeholder = "Ingrese sus nombres" })
-                        @Html.ValidationMessageFor(x=>x.Nombres)
+                        @Html.ValidationMessageFor(x=>x.Nombres, null, new { @class = "label label-danger" })
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(x => x.Apellidos)
                         @Html.TextBoxFor(x => x.Apellidos, new { @class = "form-control", placeholder = "Ingrese sus apellidos" })
-                        @Html.ValidationMessageFor(x => x.Apellidos)
+                        @Html.ValidationMessageFor(x => x.Apellidos, null, new { @class = "label label-danger" })
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(x => x.Email)
                         @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Ingrese su correo" })
-                        @Html.ValidationMessageFor(x => x.Email)
+                        @Html.ValidationMessageFor(x => x.Email, null, new { @class = "label label-danger" })
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(x => x.Telefono)
                         @Html.TextBoxFor(x => x.Telefono, new { @class = "form-control", placeholder = "Ingrese su telefono" })
-                        @Html.ValidationMessageFor(x => x.Telefono)
+                        @Html.ValidationMessageFor(x => x.Telefono, null, new { @class = "label label-danger" })
                     </div>
                     <div class="form-group">
                         <label>Foto de perfil</label>
-                        <input type="file" name="Imagen" />
+                        <input type="file" name="Foto" />
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="ubicacion">
@@ -61,12 +61,12 @@
                     <div class="form-group">
                         @Html.LabelFor(x=>x.Ciudad)
                         @Html.TextBoxFor(x=>x.Ciudad,new { @class = "form-control", placeholder = "Ingrese su ciudad" })
-                        @Html.ValidationMessageFor(x=>x.Ciudad)
+                        @Html.ValidationMessageFor(x=>x.Ciudad, null, new { @class = "label label-danger" })
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(x=>x.Direccion)
                         @Html.TextBoxFor(x=>x.Direccion, new { @class = "form-control", placeholder = "Ingrese su dirección" })
-                        @Html.ValidationMessageFor(x=>x.Direccion)
+                        @Html.ValidationMessageFor(x=>x.Direccion, null, new { @class = "label label-danger" })
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="social">
@@ -77,6 +77,7 @@
                                 <i class="fa fa-linkedin"></i>
                             </span>
                             @Html.TextBoxFor(x => x.Linkedin, new { @class = "form-control", placeholder = "Ingrese su dirección de linkedin" })
+                            @Html.ValidationMessageFor(x => x.Linkedin, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="form-group">
@@ -86,6 +87,7 @@
                                 <i class="fa fa-github"></i>
                             </span>
                             @Html.TextBoxFor(x => x.Github, new { @class = "form-control", placeholder = "Ingrese su dirección de Github" })
+                            @Html.ValidationMessageFor(x => x.Github, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="form-group">
@@ -95,6 +97,7 @@
                                 <i class="fa fa-youtube"></i>
                             </span>
                             @Html.TextBoxFor(x => x.Youtube, new { @class = "form-control", placeholder = "Ingrese su dirección de YouTube" })
+                            @Html.ValidationMessageFor(x => x.Youtube, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="form-group">
@@ -104,6 +107,7 @@
                                 <i class="fa fa-twitter"></i>
                             </span>
                             @Html.TextBoxFor(x => x.Twitter, new { @class = "form-control", placeholder = "Ingrese su dirección de Twitter" })
+                            @Html.ValidationMessageFor(x => x.Twitter, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                 </div>

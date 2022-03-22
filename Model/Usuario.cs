@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Model
 {
@@ -98,7 +100,7 @@ namespace Model
             return usuario;            
         }
 
-        public ResponseModel Guardar( )
+        public ResponseModel Guardar(HttpPostedFileBase foto)
         {
             var rm = new ResponseModel();
                         
@@ -113,6 +115,21 @@ namespace Model
                     //context.Usuarios.Add(this);
 
                     //ignoro campo password
+                    if(foto != null)
+                    {
+                        //renombro archivo para evitar duplicados
+                        string archivo = DateTime.Now.ToString("yyyMMddHHmmss") + Path.GetExtension(foto.FileName);
+                        //ruta
+                        foto.SaveAs(HttpContext.Current.Server.MapPath("~/uploads/" + archivo));
+                        //seteamos nombre
+                        this.Foto = archivo;
+                    }
+                    else
+                    {
+                        usuario.Property(x => x.Foto).IsModified = false;
+                    }
+
+
                     if (this.Password == null) usuario.Property(x => x.Password).IsModified = false;
 
                     context.SaveChanges();
