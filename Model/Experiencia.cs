@@ -107,7 +107,7 @@ namespace Model
             return rm;
         }
 
-        public MyGridResponde Listar(MyGrid grid, int tipo)
+        public MyGridResponde Listar(MyGrid grid, int tipo, int UsuarioId)
         {
             try
             {
@@ -117,7 +117,7 @@ namespace Model
 
                     grid.Inicializar();
 
-                    var query = ctx.Experiencias.Where(x => x.Tipo == tipo);
+                    var query = ctx.Experiencias.Where(x => x.Tipo == tipo).Where(x=>x.UsuarioId == UsuarioId);
 
                     // Ordenamiento
                     if (grid.columna == "Id")

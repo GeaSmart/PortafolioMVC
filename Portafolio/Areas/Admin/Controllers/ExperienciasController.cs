@@ -22,7 +22,7 @@ namespace Portafolio.Areas.Admin.Controllers
 
         public JsonResult Listar(MyGrid grid, int tipo)
         {
-            return Json(experiencia.Listar(grid, tipo));
+            return Json(experiencia.Listar(grid, tipo, SessionHelper.GetUser()));
         }
 
         public ActionResult Crud(byte tipo = 0, int id = 0)
@@ -64,10 +64,10 @@ namespace Portafolio.Areas.Admin.Controllers
         {            
             var rm = experiencia.Eliminar(id);
 
-            if (rm.response)
-            {
-                rm.href = "self";
-            }
+            //if (rm.response)
+            //{
+            //    rm.href = "self";
+            //}
             
             return Json(rm);
         }
