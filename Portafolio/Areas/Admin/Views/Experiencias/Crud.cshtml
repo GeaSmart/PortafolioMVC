@@ -12,7 +12,7 @@
     <li class="active">@(Model.Id > 0 ? Model.Nombre : "Nuevo registro")</li>
 </ol>
 
-@using (Html.BeginForm("Guardar", "Experiencia", FormMethod.Post))
+@using (Html.BeginForm("Guardar", "Experiencias", FormMethod.Post))
 {
     @Html.HiddenFor(x => x.Id)
     @Html.HiddenFor(x => x.Tipo)

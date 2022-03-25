@@ -31,5 +31,10 @@ namespace Portafolio.Areas.Admin.Controllers
             }
             return View(experiencia);
         }
+
+        public JsonResult Guardar(Experiencia model)
+        {
+
+        }
     }
 }
