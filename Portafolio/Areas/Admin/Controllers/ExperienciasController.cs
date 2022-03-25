@@ -25,7 +25,11 @@ namespace Portafolio.Areas.Admin.Controllers
             {
                 experiencia.Tipo = tipo;
             }
-            return View();
+            else
+            {
+
+            }
+            return View(experiencia);
         }
     }
 }
