@@ -25,10 +25,16 @@ namespace Portafolio.Areas.Admin.Controllers
             return Json(experiencia.Listar(grid, tipo));
         }
 
-        public ActionResult Crud(byte tipo, int id = 0)
+        public ActionResult Crud(byte tipo = 0, int id = 0)
         {
+            
+
             if(id == 0)
             {
+                if (tipo == 0)
+                {
+                    return Redirect("~/admin/experiencias");
+                }
                 experiencia.Tipo = tipo;
                 experiencia.UsuarioId = SessionHelper.GetUser();
             }

@@ -9,33 +9,59 @@
         <a class="btn btn-primary pull-right" href="~/admin/Experiencias/crud?Tipo=@tipo">Agregar</a>
         @ViewBag.Title
     </h1>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Empresa</th>
-                <th>Cargo</th>
-                <th>Desde</th>
-                <th>Hasta</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <a href="#">Empresa A</a>
-                </td>
-                <td>Cargo A</td>
-                <td>2015-02-02</td>
-                <td>2015-05-02</td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#">Empresa B</a>
-                </td>
-                <td>Cargo B</td>
-                <td>2015-02-02</td>
-                <td>2015-05-02</td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="list"></div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        var grid = $("#list").anexGrid({
+            columnas: [
+                { leyenda: 'Nombre', columna: 'Nombre', ordenable: true },
+                { leyenda: 'Titulo', columna: 'Titulo', ordenable: true },
+                { leyenda: 'Desde', columna: 'Desde', ordenable: true },
+                { leyenda: 'Hasta', columna: 'Hasta', ordenable: true },
+                { style: 'width:60px' },
+            ],
+            modelo: [
+                {
+                    propiedad: 'Nombre', formato: function (tr, obj, valor) {
+                        return anexGrid_link({
+                            href: '@Url.Content("~/admin/experiencias/crud/")' + obj.Id,
+                            contenido: valor
+                        });
+                    }
+                },
+                { propiedad: 'Titulo' },
+                { propiedad: 'Desde' },
+                { propiedad: 'Hasta' },
+                {
+                    propiedad: 'Nombre', formato: function (tr, obj, valor) {
+                        return anexGrid_link({
+                            href: '@Url.Content("~/admin/experiencias/eliminar/")' + obj.Id,
+                            contenido: '<i class="fa fa-trash"></i>',
+                            class: 'btn btn-danger btn-xs btn-block btn-eliminar',
+                        });
+                    }
+                },
+            ],
+            url: '@Url.Content("~/admin/experiencias/listar?tipo=" + tipo)',
+            paginable: true,
+            limite: [20, 60, 100],
+            columna: 'Id',
+            columna_orden: 'DESC'
+        });
+
+        grid.tabla().on('click', '.btn-eliminar', function () {
+            if (!confirm('¿Está seguro de eliminar este registro?'))
+            {
+                return;
+            }
+
+            $.post($(this).attr('href'), function (r) {
+                if (r.response) grid.refrescar();
+            }, 'json')
+
+            return false;
+        })
+    })
+</script>
