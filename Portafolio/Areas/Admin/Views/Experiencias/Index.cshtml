@@ -54,7 +54,7 @@
         grid.tabla().on('click', '.btn-eliminar', function () {
             if (!confirm('¿Está seguro de eliminar este registro?'))
             {
-                return;
+                return false;
             }
 
             $.post($(this).attr('href'), function (r) {

@@ -104,7 +104,7 @@ namespace Model
 
                     grid.Inicializar();
 
-                    var query = ctx.Experiencias.Where(x => x.UsuarioId == UsuarioId);
+                    var query = ctx.Habilidades.Where(x => x.UsuarioId == UsuarioId);
 
                     // Ordenamiento
                     if (grid.columna == "Id")
@@ -121,8 +121,8 @@ namespace Model
 
                     if (grid.columna == "Dominio")
                     {
-                        query = grid.columna_orden == "DESC" ? query.OrderByDescending(x => x.Titulo)
-                                                             : query.OrderBy(x => x.Titulo);
+                        query = grid.columna_orden == "DESC" ? query.OrderByDescending(x => x.Dominio)
+                                                             : query.OrderBy(x => x.Dominio);
                     }
 
                     // Id, Nombre, Dominio
