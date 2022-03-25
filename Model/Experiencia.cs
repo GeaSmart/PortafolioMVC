@@ -33,6 +33,11 @@ namespace Model
         //propiedades de navegacion
         public Usuario Usuario { get; set; }
 
+
+
+
+        #region Métodos
+
         public Experiencia Obtener(int id)
         {
             var experiencia = new Experiencia();
@@ -101,5 +106,70 @@ namespace Model
 
             return rm;
         }
+
+        public MyGridResponde Listar(MyGrid grid, int tipo)
+        {
+            try
+            {
+                using (var ctx = new ApplicationDbContext())
+                {
+                    ctx.Configuration.LazyLoadingEnabled = false;
+
+                    grid.Inicializar();
+
+                    var query = ctx.Experiencias.Where(x => x.Tipo == tipo);
+
+                    // Ordenamiento
+                    if (grid.columna == "Id")
+                    {
+                        query = grid.columna_orden == "DESC" ? query.OrderByDescending(x => x.Id)
+                                                             : query.OrderBy(x => x.Id);
+                    }
+
+                    if (grid.columna == "Nombre")
+                    {
+                        query = grid.columna_orden == "DESC" ? query.OrderByDescending(x => x.Nombre)
+                                                             : query.OrderBy(x => x.Nombre);
+                    }
+
+                    if (grid.columna == "Titulo")
+                    {
+                        query = grid.columna_orden == "DESC" ? query.OrderByDescending(x => x.Titulo)
+                                                             : query.OrderBy(x => x.Titulo);
+                    }
+
+                    if (grid.columna == "Desde")
+                    {
+                        query = grid.columna_orden == "DESC" ? query.OrderByDescending(x => x.Desde)
+                                                             : query.OrderBy(x => x.Desde);
+                    }
+
+                    if (grid.columna == "Hasta")
+                    {
+                        query = grid.columna_orden == "DESC" ? query.OrderByDescending(x => x.Hasta)
+                                                             : query.OrderBy(x => x.Id);
+                    }
+
+                    // id, Nombre, Titulo, Desde, Hasta
+
+                    var experiencias = query.Skip(grid.pagina)
+                                            .Take(grid.limite)
+                                             .ToList();
+
+                    var total = query.Count();
+
+                    grid.SetData(experiencias, total);
+                }
+            }
+            catch (Exception E)
+            {
+
+                throw;
+            }
+
+            return grid.responde();
+        }
     }
+
+    #endregion
 }
