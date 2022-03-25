@@ -150,6 +150,7 @@
     <Content Include="Areas\Admin\Views\Usuario\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Experiencias\Crud.cshtml" />
     <Content Include="Areas\Admin\Views\Habilidades\Crud.cshtml" />
+    <Content Include="Areas\Admin\Views\Testimonios\Crud.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
