@@ -35,7 +35,6 @@ namespace Model
 
 
 
-
         #region Métodos
 
         public Experiencia Obtener(int id)
@@ -169,7 +168,7 @@ namespace Model
 
             return grid.responde();
         }
+        
+        #endregion
     }
-
-    #endregion
 }
