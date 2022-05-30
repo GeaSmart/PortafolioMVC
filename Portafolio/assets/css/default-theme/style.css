@@ -16,7 +16,7 @@ body{background:#eee url('images/bg.jpg');font-family:Lato;font-size:16px;overfl
 #user{display:table-cell;vertical-align:top;width:450px;position:relative;text-align:center;}
 #user .user-container-fixed{position:fixed;top:0;left:0;width:inherit;}
 #user .user-container{width:280px;padding-right:40px;float:right;}
-#user .user-container h1{font-family:Ubuntu;margin-bottom:30px;}
+#user .user-container h1{font-family:Ubuntu;font-weight:bold;margin-bottom:30px;}
 #user .user-container .pic{width:100%;width:180px;border:1px solid #ccc;padding:0px;background:#fff;margin-bottom:30px;border-radius:50%;}
 #user .user-container .title{display:block;font-size:1.4em;font-family:Ubuntu;}
 #user .user-container .description{display:block;margin-bottom:15px;text-shadow:1px 1px 1px #ddd;font-size:1.2em;}
@@ -73,7 +73,7 @@ form{position:relative;}
     #user .user-container{text-align:center;}
     #user .user-container .pic{width:60%;margin:auto;margin-bottom:20px;}
     #user .user-container{width:inherit;padding:20px;float:none;}
-    #user .user-container h1{font-family:Ubuntu;margin-bottom:30px;}
+    #user .user-container h1{font-family:Ubuntu;font-weight:bold;margin-bottom:30px;}
     
     #content .options-container-fixed{bottom:0;}
     #content .options{background:#ddd;border-bottom:1px solid #ccc;padding:10px;}
