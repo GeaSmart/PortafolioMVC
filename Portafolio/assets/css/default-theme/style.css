@@ -1,7 +1,7 @@
 @import url('../bootstrap.min.css');
 @import url('../font-awesome.min.css');
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Ubuntu:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Ubuntu:wght@500&display=swap');
 
 /* Bootstrap overwrite */
 .btn{ border-radius:3px !important;}
@@ -13,9 +13,9 @@ body{background:#eee url('images/bg.jpg');font-family:Lato;font-size:16px;overfl
 #cv-container{display:table;width:100%;}
 
 /* Usuario */
-#user{display:table-cell;vertical-align:top;width:380px;position:relative;}
+#user{display:table-cell;vertical-align:top;width:450px;position:relative;text-align:center;}
 #user .user-container-fixed{position:fixed;top:0;left:0;width:inherit;}
-#user .user-container{width:240px;padding-right:20px;float:right;}
+#user .user-container{width:280px;padding-right:40px;float:right;}
 #user .user-container h1{font-family:Ubuntu;margin-bottom:30px;}
 #user .user-container .pic{width:100%;width:180px;border:1px solid #ccc;padding:0px;background:#fff;margin-bottom:30px;border-radius:50%;}
 #user .user-container .title{display:block;font-size:1.4em;font-family:Ubuntu;}
@@ -62,8 +62,8 @@ form{position:relative;}
 
 /* Responsive */
 @media (max-width: 992px){
-    #user{width:260px;}
-    #user .user-container-fixed{width:260px;}
+    #user{width:300px;}
+    #user .user-container-fixed{width:300px;}
 }
 
 @media (max-width: 768px){
@@ -73,7 +73,7 @@ form{position:relative;}
     #user .user-container{text-align:center;}
     #user .user-container .pic{width:60%;margin:auto;margin-bottom:20px;}
     #user .user-container{width:inherit;padding:20px;float:none;}
-    #user .user-container h1{font-family:Russo One;margin-bottom:30px;}
+    #user .user-container h1{font-family:Ubuntu;margin-bottom:30px;}
     
     #content .options-container-fixed{bottom:0;}
     #content .options{background:#ddd;border-bottom:1px solid #ccc;padding:10px;}
