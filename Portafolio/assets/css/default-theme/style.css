@@ -1,10 +1,10 @@
 @import url('../bootstrap.min.css');
 @import url('../font-awesome.min.css');
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
-@import url(http://fonts.googleapis.com/css?family=Russo+One);
-
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Ubuntu:wght@500&display=swap');
+
+/* Bootstrap overwrite */
+.btn{ border-radius:3px !important;}
 
 /* Body */
 body{background:#eee url('images/bg.jpg');font-family:Lato;font-size:16px;overflow-x:hidden;}
@@ -16,7 +16,7 @@ body{background:#eee url('images/bg.jpg');font-family:Lato;font-size:16px;overfl
 #user{display:table-cell;vertical-align:top;width:380px;position:relative;}
 #user .user-container-fixed{position:fixed;top:0;left:0;width:inherit;}
 #user .user-container{width:240px;padding-right:20px;float:right;}
-#user .user-container h1{font-family:Russo One;margin-bottom:30px;}
+#user .user-container h1{font-family:Ubuntu;margin-bottom:30px;}
 #user .user-container .pic{width:100%;width:180px;border:1px solid #ccc;padding:10px;background:#fff;margin-bottom:30px;}
 #user .user-container .title{display:block;font-size:1.4em;font-family:Ubuntu;}
 #user .user-container .description{display:block;margin-bottom:15px;text-shadow:1px 1px 1px #ddd;font-size:1.2em;}

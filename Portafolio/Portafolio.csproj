@@ -110,9 +110,9 @@
     <Content Include="Areas\Admin\Assets\js\jquery.validate.min.js" />
     <Content Include="Areas\Admin\Assets\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="assets\css\admin-style.css" />
-    <Content Include="assets\css\anexsoft-theme\images\ajax-loader.gif" />
-    <Content Include="assets\css\anexsoft-theme\images\bg.jpg" />
-    <Content Include="assets\css\anexsoft-theme\style.css" />
+    <Content Include="assets\css\default-theme\images\ajax-loader.gif" />
+    <Content Include="assets\css\default-theme\images\bg.jpg" />
+    <Content Include="assets\css\default-theme\style.css" />
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\font-awesome.min.css" />
     <Content Include="assets\fonts\fontawesome-webfont.svg" />
@@ -125,7 +125,7 @@
     <Content Include="assets\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
-    <Content Include="Uploads\foto.jpg.png" />
+    <Content Include="Uploads\foto.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +204,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\Shared\_User.cshtml" />
+    <Content Include="Views\Shared\_MenuAdicional.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
