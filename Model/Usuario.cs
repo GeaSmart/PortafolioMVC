@@ -53,6 +53,8 @@ namespace Model
         public List<Testimonio> Testimonios { get; set; }
         public List<Habilidad> Habilidades { get; set; }
 
+        [NotMapped]
+        public Configuracion Pais { get; set; }
 
         public ResponseModel AccederUsuario(string email, string password)
         {
@@ -99,6 +101,8 @@ namespace Model
                                     .Include(x=>x.Testimonios)
                                     .Where(x => x.Id == id)
                                     .FirstOrDefault();
+                    //asignamos manualmente el pais ya que Configuración es una tabla no mapeada, multiuso
+                    usuario.Pais = new Configuracion().Obtener("pais", usuario.PaisId.ToString());
                 }
             }
             catch(Exception ex)

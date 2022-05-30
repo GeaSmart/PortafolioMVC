@@ -37,5 +37,17 @@ namespace Model
 
             return datos;
         }
+
+        public Configuracion Obtener(string relacion, string valor)
+        {
+            var dato = new Configuracion();
+
+            using (var contexto = new ApplicationDbContext())
+            {
+                dato = contexto.Configuraciones.Where(x => x.Relacion == relacion).Where(x=>x.Valor == valor).SingleOrDefault();
+            }
+
+            return dato;
+        }
     }
 }
