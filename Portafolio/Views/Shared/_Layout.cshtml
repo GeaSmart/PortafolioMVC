@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    var defaultUserId = Portafolio.App_Start.Startup.DefaultUserId();
+    var usuario = new Usuario().Obtener(defaultUserId);
+}
+
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <title>@ViewBag.Title</title>
@@ -10,7 +15,7 @@
 <body>
 
     <div id="cv-container">
-        @Html.Partial("~/views/shared/_user.cshtml")
+        @Html.Partial("~/views/shared/_user.cshtml", usuario)
         <div id="content">
             @Html.Partial("~/views/shared/_MenuAdicional.cshtml")
             <div class="content-container container-fluid">

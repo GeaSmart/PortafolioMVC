@@ -83,14 +83,22 @@ namespace Model
             return response;
         }
 
-        public Usuario Obtener(int id)
+        public Usuario Obtener(int id, bool includes = false)
         {
             var usuario = new Usuario();
             try
             {
                 using(var context =new ApplicationDbContext())
                 {
-                    usuario = context.Usuarios.Where(x => x.Id == id).FirstOrDefault();
+                    if (!includes)
+                        usuario = context.Usuarios.Where(x => x.Id == id).FirstOrDefault();
+                    else
+                        usuario = context.Usuarios                                    
+                                    .Include(x=>x.Experiencias)
+                                    .Include(x=>x.Habilidades)
+                                    .Include(x=>x.Testimonios)
+                                    .Where(x => x.Id == id)
+                                    .FirstOrDefault();
                 }
             }
             catch(Exception ex)

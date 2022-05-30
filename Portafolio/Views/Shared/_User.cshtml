@@ -1,15 +1,22 @@
 ﻿@model Usuario
+
 <div id="user">
     <div class="user-container-fixed">
         <div class="user-container">
-            <h1>Gerson Azabache Martínez</h1>
-            <img class="pic" src="~/uploads/foto.png" title="Gerson Azabache" />
+            <h1>@Model.Nombres @Model.Apellidos</h1>
+            <img class="pic" src="~/uploads/@Model.Foto" title="@Model.Nombres @Model.Apellidos" />
             <span class="title">Teléfono</span>
-            <span class="description">+51-999-9999</span>
+            <span class="description">@Model.Telefono</span>
             <span class="title">Email</span>
-            <span class="description"><a>gerson@mail.com</a></span>
+            <span class="description"><a href="mailto:@Model.Email">@Model.Email</a></span>
             <span class="title">Dirección</span>
-            <span class="description">Calle Las lomas de Lachay 458<br /> Perú</span>
+            <span class="description">
+                @Model.Direccion
+                <br />
+                @Model.Ciudad
+                <br />
+                @Model.PaisId
+            </span>
         </div>
     </div>
 </div>
