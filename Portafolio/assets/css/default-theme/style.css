@@ -30,10 +30,10 @@ body{background:#eee url('images/bg.jpg');font-family:Lato;font-size:16px;overfl
 /* Titulos */
 #content .content-container .title{text-shadow:1px 1px #8b8b8b;color:#eee;font-weight:bold;padding:10px 20px;margin:0;margin-bottom:30px;margin-left:-40px;font-family:Ubuntu;font-size:1.6em;border-radius:5px}
 #content .content-container .title .fa{color:#fff;margin-top:-2px;}
-#content .content-container .title-blue{background:#51b6db;border-left:20px solid #33738b;}
+#content .content-container .title-red{background:#d9534f;border-left:20px solid #d43f3a;}
 #content .content-container .title-yellow{background:#dbbb51;border-left:20px solid #847132;}
 #content .content-container .title-green{background:#68b93d;border-left:20px solid #447729;}
-#content .content-container .title-red{background:#b93d68;border-left:20px solid #67223a;}
+#content .content-container .title-blue{background:#337ab7;border-left:20px solid #2e6da4;}
 
 /* List */
 .list{margin-bottom:20px;}
