@@ -102,7 +102,8 @@ namespace Model
                                     .Where(x => x.Id == id)
                                     .FirstOrDefault();
                     //asignamos manualmente el pais ya que Configuración es una tabla no mapeada, multiuso
-                    usuario.Pais = new Configuracion().Obtener("pais", usuario.PaisId.ToString());
+                    if (usuario != null)
+                        usuario.Pais = new Configuracion().Obtener("pais", usuario.PaisId.ToString());
                 }
             }
             catch(Exception ex)

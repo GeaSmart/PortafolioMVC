@@ -1,4 +1,6 @@
-﻿<div class="options-container-fixed">
+﻿@model Usuario
+
+<div class="options-container-fixed">
     <div class="options">
         <div class="row">
             <div class="col-sm-12">
@@ -8,12 +10,26 @@
                 <button class="btn btn-primary">
                     <i class="fa fa-print"></i> <span class="hidden-xs hidden-sm">Imprimir</span>
                 </button>
-                <button class="btn btn-default" data-toggle="modal" data-target="#mContacto">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#mContacto">
                     <i class="fa fa-envelope-o"></i> <span class="hidden-xs hidden-sm">Contactar</span>
                 </button>
-                <a title="Facebook" class="btn btn-default"><i class="fa fa-facebook-official"></i></a>
-                <a title="Twitter" class="btn btn-default"><i class="fa fa-twitter"></i></a>
-                <a title="Youtube" class="btn btn-default"><i class="fa fa-youtube"></i></a>
+                @if (Model.Linkedin != null && Model.Linkedin != "")
+                {
+                    <a target="_blank" href="@Model.Linkedin" title="Linkedin" class="btn btn-default"><i class="fa fa-linkedin"></i></a>
+                }
+                @if (Model.Github != null && Model.Github != "")
+                {
+                    <a target="_blank" href="@Model.Github" title="Facebook" class="btn btn-default"><i class="fa fa-github"></i></a>
+                }
+                @if (Model.Youtube != null && Model.Youtube != "")
+                {
+                    <a target="_blank" href="@Model.Youtube" title="Facebook" class="btn btn-default"><i class="fa fa-youtube-play"></i></a>
+                }
+                @if (Model.Twitter != null && Model.Twitter != "")
+                {
+                    <a target="_blank" href="@Model.Twitter" title="Facebook" class="btn btn-default"><i class="fa fa-twitter"></i></a>
+                }
+
             </div>
         </div>
     </div>
