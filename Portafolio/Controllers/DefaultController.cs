@@ -1,5 +1,6 @@
 ﻿using Model;
 using Portafolio.App_Start;
+using Portafolio.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,16 @@ namespace Portafolio.Controllers
         {
             var usuarioActual = usuario.Obtener(Startup.DefaultUserId(),true);
             return View(usuarioActual);
+        }
+
+        public JsonResult EnviarCorreo(ContactoDTO contactoDTO)
+        {
+            var rm = new ResponseModel();
+
+            if (ModelState.IsValid)
+            {
+
+            }
         }
     }
 }

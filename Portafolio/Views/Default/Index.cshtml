@@ -5,7 +5,7 @@
 
 @if (Model.Experiencias.Count > 0)
 {
-    <h2 class="title title-red">
+    <h2 class="title title-blue">
         <i class="fa fa-briefcase pull-right"></i>
         Empleos previos
     </h2>
@@ -50,7 +50,7 @@
 
 @if (Model.Experiencias.Where(x => x.Tipo == 2).ToList().Count > 0)
 {
-    <h2 class="title title-red">
+    <h2 class="title title-blue">
         <i class="fa fa-university pull-right"></i>
         Estudios realizados
     </h2>
