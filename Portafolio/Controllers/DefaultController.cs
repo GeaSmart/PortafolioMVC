@@ -43,5 +43,15 @@ namespace Portafolio.Controllers
             }
             return Json(rm);
         }
+
+        public ActionResult ExportarPdf()
+        {
+            return new Rotativa.MVC.ActionAsPdf("PdfLayout");
+        }
+
+        public ActionResult PdfLayout()
+        {
+            return View(usuario.Obtener(Startup.DefaultUserId(), true));
+        }
     }
 }

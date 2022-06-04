@@ -1,0 +1,125 @@
+﻿@model Usuario
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@Model.Nombres @Model.Apellidos</title>
+    <link href="~/assets/css/default-theme/style.css" type="text/css" rel="stylesheet" />
+    @*<link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />*@
+</head>
+<body>
+    <div id="cv-container">
+        @*@Html.Partial("~/views/shared/_user.cshtml", Model)*@
+
+        <div class="">
+            <h1>@Model.Nombres @Model.Apellidos</h1>
+            <img class="pic" style="max-width:150px" src="~/uploads/@Model.Foto" title="@Model.Nombres @Model.Apellidos" />
+            <span class="title">Teléfono</span>
+            <span class="description">@Model.Telefono</span>
+            <span class="title">Email</span>
+            <span class="description"><a href="mailto:@Model.Email">@Model.Email</a></span>
+            <span class="title">Dirección</span>
+            <span class="description">
+                @Model.Direccion
+                <br />
+                @Model.Ciudad
+                <br />
+                @Model.Pais.Descripcion
+            </span>
+        </div>
+
+        <div id="content">
+            <div class="content-container container-fluid">
+
+                @if (Model.Experiencias.Count > 0)
+                {
+                    <h2 class="title title-blue" style="font-size:50px;">
+                        <i class="fa fa-briefcase pull-right"></i>
+                        Empleos previos
+                    </h2>
+                    foreach (var trabajo in Model.Experiencias.Where(x => x.Tipo == 1).ToList())
+                    {
+                        <div class="list well well-sm">
+                            <div class="list-heading">
+                                @trabajo.Nombre <small class="list-heading-date">@trabajo.Desde - @(trabajo.Hasta.Length == 0 ? "Actualmente" : trabajo.Hasta) </small>
+                                <span class="list-heading-subtitle">@trabajo.Titulo</span>
+                            </div>
+                            <div class="list-description">
+                                <p>@trabajo.Descripcion</p>
+                            </div>
+                        </div>
+                    }
+                }
+
+                @if (Model.Habilidades.Count > 0)
+                {
+                    <h2 class="title title-blue">
+                        <i class="fa fa-line-chart pull-right"></i>
+                        Habilidades obtenidas
+                    </h2>
+                    <ul class="list-group">
+                        @foreach (var habilidad in Model.Habilidades)
+                        {
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <b>@habilidad.Nombre</b>
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="@habilidad.Dominio" aria-valuemin="0" aria-valuemax="100" style="width: @habilidad.Dominio%">@habilidad.Dominio %</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+
+                @if (Model.Experiencias.Where(x => x.Tipo == 2).ToList().Count > 0)
+                {
+                    <h2 class="title title-blue">
+                        <i class="fa fa-university pull-right"></i>
+                        Estudios realizados
+                    </h2>
+                    foreach (var estudio in Model.Experiencias.Where(x => x.Tipo == 2).ToList())
+                    {
+                        <div class="list well well-sm">
+                            <div class="list-heading">
+                                @estudio.Nombre <small class="list-heading-date">@estudio.Desde - @(estudio.Hasta.Length>0?estudio.Hasta:"Actualmente")</small>
+                                <span class="list-heading-subtitle">@estudio.Titulo</span>
+                            </div>
+                            <div class="list-description">
+                                <p>@estudio.Descripcion</p>
+                            </div>
+                        </div>
+                    }
+                }
+
+                @if (Model.Testimonios.Count > 0)
+                {
+                    <div class="media">
+                        <div class="media-body">
+                            @foreach (var testimonio in Model.Testimonios)
+                            {
+                                <h4 class="media-heading">
+                                    @testimonio.Nombre <small>Enviado el @testimonio.Fecha</small>
+                                </h4>
+                                <div class="well well-sm">
+                                    @testimonio.Comentario
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
