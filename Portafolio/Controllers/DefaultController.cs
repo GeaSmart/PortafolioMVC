@@ -53,5 +53,20 @@ namespace Portafolio.Controllers
         {
             return View(usuario.Obtener(Startup.DefaultUserId(), true));
         }
+
+        public JsonResult EnviarTestimonio(Testimonio model)
+        {
+            var rm = new ResponseModel();
+
+            if (ModelState.IsValid)
+            {
+                rm = model.Guardar();
+                if (rm.response)
+                {
+                    rm.message = "Gracias por su comentario.";
+                }
+            }
+            return Json(rm);
+        }
     }
 }

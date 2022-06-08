@@ -218,6 +218,7 @@
     <Content Include="Views\Shared\_MenuAdicional.cshtml" />
     <Content Include="Views\Shared\_Contacto.cshtml" />
     <Content Include="Views\Default\PdfLayout.cshtml" />
+    <Content Include="Views\Shared\_Testimonio.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
